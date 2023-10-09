@@ -1,5 +1,10 @@
 package ch.jobtrek;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class Basics {
 
     /**
@@ -12,10 +17,11 @@ public class Basics {
         boolean numbers = (number1 % 2 == 0) && (number2 % 2 == 0);
 
         // Vérifie si le nombre 1 est supérieur à 10
-        boolean nombre1plusgrandque10= (number1 > 10);
+        boolean nombre1plusgrandque10 = (number1 > 10);
 
         // Vérifie si toutes les conditions sont remplies
         return numbers || nombre1plusgrandque10;
+
     }
 
     /**
@@ -23,9 +29,14 @@ public class Basics {
      * @return A string containing only words of maximum 4 characters and starting
      * with letter T. All words should be uppercase and separated by spaces
      */
+
     public static String strings(String text) {
-        return ""; // Replace with your code here
+        return Arrays.stream(text.split(" "))
+                .filter(word -> word.length() <= 4 && word.startsWith("T"))
+                .map(String::toUpperCase)
+                .collect(Collectors.joining(" "));
     }
+
 
     /**
      * @param needle The word you need to replace
