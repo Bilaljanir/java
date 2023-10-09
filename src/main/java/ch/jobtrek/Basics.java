@@ -37,14 +37,17 @@ public class Basics {
                 .collect(Collectors.joining(" "));
     }
 
-
     /**
-     * @param needle The word you need to replace
+     * @param needle   The word you need to replace
      * @param haystack A string in which you need to replace the needle by the new word
-     * @param newWord The replacement word
+     * @param newWord  The replacement word
      * @return A new string where the needle is replaced by newWord
      */
     public static String findAndReplace(String needle, String haystack, String newWord) {
-        return ""; // Replace with your code here
+
+        if (needle == null || needle.isEmpty()) {
+            return haystack;
+        }
+        return haystack.replace(needle, newWord);
     }
 }
