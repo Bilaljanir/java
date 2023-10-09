@@ -3,14 +3,19 @@ package ch.jobtrek;
 public class Basics {
 
     /**
-     * This function gets two integers and must compute them as follows :
-     * IF all numbers are even or number 1 superior to 10, return true
+     * This function gets two integers and must compute them as follows:
+     * IF all numbers are even or number 1 is greater than 10, return true
      * in all other cases, return false
      */
     public static boolean someConditionals(int number1, int number2) {
+        // Vérifie si les deux nombres sont pairs
+        boolean numbers = (number1 % 2 == 0) && (number2 % 2 == 0);
 
+        // Vérifie si le nombre 1 est supérieur à 10
+        boolean nombre1plusgrandque10= (number1 > 10);
 
-        return false;
+        // Vérifie si toutes les conditions sont remplies
+        return numbers || nombre1plusgrandque10;
     }
 
     /**
