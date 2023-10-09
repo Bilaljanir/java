@@ -2,6 +2,7 @@ package ch.jobtrek;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class Collections {
 
@@ -12,7 +13,22 @@ public class Collections {
      * of the size, and another with the stings longer than the size
      */
     public static List<List<String>> chunkArrayByStringSize(List<String> array, int size) {
-        return List.of(); // Replace with your code here
+        // Crée deux listes pour stocker les chaînes de caractères courtes et longues
+        List<String> shortest = new ArrayList<>();
+        List<String> longest = new ArrayList<>();
+
+        for (String str : array) {
+            if (str.length() <= size) {
+                shortest.add(str);
+            } else {
+                longest.add(str);
+            }
+        }
+        List<List<String>> result = new ArrayList<>();
+        result.add(shortest);
+        result.add(longest);
+
+        return result;
     }
 
     /**
@@ -26,7 +42,7 @@ public class Collections {
 
     /**
      * @param numbers A list, containing list of numbers
-     * @return The sum of all numbers, but all odd numbers should be multiplied before sum
+     * @return The sum of all numbers, but all odd numbers should be multiplied by two before sum
      * Should return zero if there is no numbers
      */
     public static Integer sumArrays(List<List<Integer>> numbers) {
