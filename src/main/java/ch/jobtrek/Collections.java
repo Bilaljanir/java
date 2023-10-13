@@ -14,6 +14,7 @@ public class Collections {
      * of the size, and another with the stings longer than the size
      */
     public static List<List<String>> chunkArrayByStringSize(List<String> array, int size) {
+
         // Crée deux listes pour stocker les chaînes de caractères courtes et longues
         List<String> shortest = new ArrayList<>();
         List<String> longest = new ArrayList<>();
@@ -42,17 +43,19 @@ public class Collections {
      */
     public static List<Integer> frequencyOfApparition(List<Integer> numbers) {
 
-        return numbers.stream().collect(Collectors.groupingBy(Integer::intValue,Collectors.counting())).entrySet().stream().sorted(Map.Entry.comparingByValue()).map(Map.Entry::getKey).collect(Collectors.toList());
+        return numbers.stream().collect(Collectors.groupingBy(Integer::intValue,Collectors.counting()))
+                .entrySet().stream().sorted(Map.Entry.comparingByValue()).map(Map.Entry::getKey).collect(Collectors.toList());
 
     }
-
     /**
      * @param numbers A list, containing list of numbers
      * @return The sum of all numbers, but all odd numbers should be multiplied by two before sum
      * Should return zero if there is no numbers
      */
     public static Integer sumArrays(List<List<Integer>> numbers) {
-        return 3; // Replace with your code here
+        return numbers.stream().flatMap(List::stream)
+                .map(number -> number % 2 == 1 ? number * 2 : number)
+                .reduce(0, Integer::sum);
     }
 
     /**
@@ -60,6 +63,6 @@ public class Collections {
      * @return The student with the best grade in the map
      */
     public static String bestStudent(Map<String, Integer> students) {
-        return ""; // Replace with your code here
+        return students
     }
 }
