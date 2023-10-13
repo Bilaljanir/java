@@ -31,10 +31,7 @@ public class Basics {
      */
 
     public static String strings(String text) {
-        return Arrays.stream(text.split(" "))
-                .filter(word -> word.length() <= 4 && word.startsWith("T"))
-                .map(String::toUpperCase)
-                .collect(Collectors.joining(" "));
+        return Arrays.stream(text.split(" ")).filter(word -> word.length() <= 4 && word.startsWith("T")).map(String::toUpperCase).collect(Collectors.joining(" "));
     }
 
     /**

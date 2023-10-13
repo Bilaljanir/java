@@ -3,6 +3,7 @@ package ch.jobtrek;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Collections {
 
@@ -31,13 +32,18 @@ public class Collections {
         return result;
     }
 
+
+
+
     /**
      * @param numbers A list of integers
      * @return A list containing the integers of the original list, without
      * duplicates, sorted by frequency of occurrence
      */
     public static List<Integer> frequencyOfApparition(List<Integer> numbers) {
-        return List.of(); // Replace with your code here
+
+        return numbers.stream().collect(Collectors.groupingBy(Integer::intValue,Collectors.counting())).entrySet().stream().sorted(Map.Entry.comparingByValue()).map(Map.Entry::getKey).collect(Collectors.toList());
+
     }
 
     /**
