@@ -39,6 +39,7 @@ public class Tunnel implements Tunnelable {
         return canton;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
