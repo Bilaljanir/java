@@ -1,5 +1,6 @@
 package ch.jobtrek;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
@@ -33,9 +34,6 @@ public class Collections {
         return result;
     }
 
-
-
-
     /**
      * @param numbers A list of integers
      * @return A list containing the integers of the original list, without
@@ -64,5 +62,9 @@ public class Collections {
      */
     public static String bestStudent(Map<String, Integer> students) {
         return students
+                .entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getKey))
+                .get().getKey();
     }
+
 }
