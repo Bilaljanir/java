@@ -33,9 +33,15 @@ public class Csv {
      * @param tunnels A List of tunnels
      * @return A List containing only the 10 longest tunnels
      */
+
+
     public static List<Tunnelable> tenLongestTunnels(List<Tunnelable> tunnels) {
-        return List.of(); // Replace with your code here
+        return tunnels.stream()
+                .sorted(Comparator.comparing(Tunnelable::getKilometerLength).reversed())
+                .limit(10)
+                .collect(Collectors.toList());
     }
+
 
     /**
      * @param tunnels List of tunnels
