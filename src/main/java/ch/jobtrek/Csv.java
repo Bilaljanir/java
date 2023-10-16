@@ -56,7 +56,7 @@ public class Csv {
     /**
      * @param tunnels List of tunnels
      * @return A Map with the year as key and the number of tunnels as value
-                     Une Map avec l'année comme clé et le nombre de tunnels comme valeur
+    Une Map avec l'année comme clé et le nombre de tunnels comme valeur
      */
 
     public static Map<Integer, Long> tunnelsByYears(List<Tunnelable> tunnels) {
@@ -69,7 +69,8 @@ public class Csv {
      * @return The year in which the most tunnels were built
      */
     public static int yearWithBiggestTunnelBuilds(List<Tunnelable> tunnels) {
-        return tunnels.stream().
+        return tunnelsByYears(tunnels).entrySet().stream().max(Map.Entry.comparingByValue())
+                .get().getKey();
     }
 
 }
